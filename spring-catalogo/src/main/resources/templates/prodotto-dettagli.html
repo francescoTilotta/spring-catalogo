@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <title>Dettagli prodotto</title>
+</head>
+<body>
+    <div class="col-3">
+
+        <div>
+            <h3 th:text="'Ecco i dettagli di ' + ${prodottoD.codice}"></h3>
+
+            <div>
+                <b>Nome: </b><span th:text="${prodottoD.nome}"></span>
+            </div>
+
+            <div>
+                <b>categoria: </b><span th:text="${prodottoD.categoria}"></span>
+            </div>
+
+            <div>
+                <b>anno di Produzione: </b><span th:text="${prodottoD.annoProduzione}"></span>
+            </div>
+        </div>
+
+        <br>
+        <div>
+            <a class="btn btn-primary" th:href="@{/}">Esci</a>
+        </div>
+    </div>
+</body>
+</html>

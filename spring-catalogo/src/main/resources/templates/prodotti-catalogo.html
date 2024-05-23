@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <title>Lista prodotti</title>
+</head>
+<body>
+    <div>
+        <!-- feedback di eliminazione -->
+        <div class="col-3 my-2">
+            <div class="alert alert-info" role="alert" th:if="${deleted != null}"> 
+                Prodotto eliminato!
+            </div>
+        </div>
+
+        <header class="my-2">
+            <h2>Lista prodotti</h2>
+            <!-- pulsante per aggiungere -->
+            <a th:href="@{/prodotto?type=nuovo}" class="btn btn-success">Nuovo prodotto</a>
+        </header>
+
+        <table class="table table-striped table-bordered"> 
+            <thead class="thead-dark"> 
+                <tr>
+                    <th class="col-2">codice</th>
+                    <th class="col-2">nome</th>
+                    <th class="col-2">categoria</th>
+                    <th class="col-2">anno di Produzione</th>
+                    <th class="col-2">quantità</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- direttiva strutturale per ciclare -->
+                <tr th:each="p : ${prodotti}"> 
+                    <td th:text="${p.codice}"></td>
+                    <td th:text="${p.nome}"></td>
+                    <td th:text="${p.annoProduzione}"></td>
+                    <td th:text="${p.categoria}"></td> 
+
+                    <td>
+                        <!-- pulsante di azione -->
+                        <a th:href="@{'/delete/'+${p.codice}}" class="btn btn-danger">elimina</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <small th:if="${#lists.isEmpty(prodotti)}"> 
+            Nessun prodotto inserito
+        </small>
+    </div>
+</body>
+</html>

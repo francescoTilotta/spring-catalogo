@@ -1,0 +1,13 @@
+package it.marconi.springcatalogo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringCatalogoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringCatalogoApplication.class, args);
+	}
+
+}
